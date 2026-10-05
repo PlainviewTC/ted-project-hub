@@ -36,7 +36,7 @@
     "label": "Tax-base simulator",
     "status": "Active",
     "description": "Interactive model showing how new housing value affects Plainview's taxable base, fiscal capacity, infrastructure burden, and constant-levy tax scenarios.",
-    "siteUrl": "https://plainview-housing-value.theodore-chancellor.chatgpt.site",
+    "siteUrl": "https://plainview-housing-value.vercel.app",
     "tinyUrl": ""
   },
   {
