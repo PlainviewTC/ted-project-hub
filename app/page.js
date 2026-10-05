@@ -73,8 +73,8 @@ export default function Page(){
     <div className="top">
       <div>
         <div className="eyebrow">Private project directory</div>
-        <h1>Ted's Project Hub</h1>
-        <p className="sub">One cloud-saved directory for your websites, simulators, concept sites, and public-facing projects. Add TinyURLs beside the underlying site and open the same list from any authenticated device.</p>
+        <h1>Project Hub</h1>
+        <p className="sub">A cloud-saved directory for websites, simulators, concept sites, and public-facing projects. Add TinyURLs beside the underlying site and open the same list from any authenticated device.</p>
       </div>
       <div className="privacy">🔒 Vercel protected</div>
     </div>
@@ -132,7 +132,7 @@ export default function Page(){
             <div className="field full"><label>Underlying site URL</label><input type="url" value={form.siteUrl} onChange={e=>setForm({...form,siteUrl:e.target.value})} placeholder="https://…"/></div>
             <div className="field full"><label>TinyURL</label><input type="url" value={form.tinyUrl} onChange={e=>setForm({...form,tinyUrl:e.target.value})} placeholder="https://tinyurl.com/…"/></div>
           </div>
-          <div className="notice">Saving writes the entire project list to your private Vercel Blob store, so the same data is available from every authenticated computer.</div>
+          <div className="notice">Saving writes the entire project list to private cloud storage, so the same data is available from every authenticated computer.</div>
           <div className="modal-actions"><button type="button" className="btn" onClick={closeEditor}>Cancel</button><button className="btn primary">Save project</button></div>
         </form>
       </div>
