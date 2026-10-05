@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Plainview Housing affordability simulator for comparing the full monthly cost of homeownership in Plainview and Lubbock.">
+<title>Plainview Housing | Affordability Simulator</title>
+<style>
+:root{--ink:#14273a;--blue:#0f5d91;--navy:#0b3656;--sky:#eef6fb;--cream:#f7f3e9;--gold:#d59a2b;--green:#176f58;--red:#a34a40;--line:#d8e2e9;--muted:#60717f;--card:#fff;--shadow:0 18px 55px rgba(13,45,70,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f4f7f9}
+a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 24px}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.08em}.brand span{font-weight:500;opacity:.72}.nav a{text-decoration:none;font-size:13px;color:#d7eaf7}
+.hero{padding:66px 0 78px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}.eyebrow,.kicker{font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.eyebrow{color:#bfe5fb}.hero h1{font-family:Georgia,serif;font-size:58px;line-height:1.02;margin:10px 0 18px}.hero p{font-size:19px;color:#e1eef6;max-width:720px}.heroCard{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);padding:26px;border-radius:22px}.heroCard b{font:700 30px Georgia,serif}.heroCard p{font-size:14px;margin:8px 0 0}
+.section{padding:70px 0}.white{background:#fff}.cream{background:var(--cream)}.sectionTitle{max-width:760px;margin-bottom:28px}.kicker{color:var(--blue);margin-bottom:7px}.section h2{font:700 39px/1.08 Georgia,serif;margin:0 0 11px}.sectionTitle p{font-size:17px;color:var(--muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.btn,.chip{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.field{display:grid;gap:6px}.field label{font-size:12px;font-weight:850;color:var(--muted)}input,select{width:100%;border:1px solid #cdd9e2;background:#fbfdfe;border-radius:11px;padding:11px 12px;font:inherit;color:var(--ink)}.full{grid-column:1/-1}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.city{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}.cityHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.cityName{font:700 29px Georgia,serif}.code{font-weight:900;color:var(--blue)}.priceRow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;margin:18px 0}.priceRow input{font-size:18px;font-weight:800}.metricHero{background:var(--sky);border-radius:16px;padding:19px;margin:10px 0 16px}.metricHero small{font-size:11px;letter-spacing:.12em;font-weight:900}.metricHero strong{display:block;font:700 38px Georgia,serif;margin:3px 0}.miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini{background:#f7fafc;border:1px solid var(--line);border-radius:13px;padding:12px}.mini b{display:block;font-size:18px}.mini span{font-size:11px;color:var(--muted)}
+.verdict{margin:18px 0;padding:14px 16px;border-left:4px solid var(--gold);background:#fff8e8;border-radius:8px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}th,td{padding:12px 14px;border-bottom:1px solid #e7edf1;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:12px;color:var(--muted);background:#f8fafb}
+.stressWrap{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.stressCard,.gapCard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}.stressGrid{display:grid;grid-template-columns:130px repeat(3,1fr);gap:1px;background:#dfe6eb;border:1px solid #dfe6eb;border-radius:12px;overflow:hidden}.stressGrid div{background:#fff;padding:11px;text-align:center}.stressGrid .head{font-weight:850;background:#f7fafc}.stressGrid .current{background:#eaf4fb;font-weight:900}.gapBig{font:700 40px Georgia,serif}.sourceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.source{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.source b{display:block;margin-bottom:7px}.source p{color:var(--muted);margin:0}.badge{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 7px;border-radius:999px;background:#eaf4fb;color:var(--blue);margin-bottom:9px}
+footer{background:#0d2437;color:#bfd0dd;padding:24px 0;font-size:12px}
+@media(max-width:850px){.hero,.compare,.stressWrap{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.sourceGrid{grid-template-columns:1fr}.hero h1{font-size:44px}}@media(max-width:560px){.wrap{padding:0 15px}.controls{grid-template-columns:1fr}.hero{padding:45px 0}.hero h1{font-size:38px}.miniGrid{grid-template-columns:1fr}.stressGrid{font-size:12px;grid-template-columns:95px repeat(3,1fr)}th,td{padding:9px 7px;font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="nav"><div class="brand">PLAINVIEW <span>| Housing</span></div><div><a href="#simulator">Simulator</a> · <a href="#stress">Stress test</a> · <a href="#method">Sources & method</a></div></div>
+<div class="hero">
+<div><div class="eyebrow">Build Plainview Housing & Development Symposium</div><h1>A home is more than its price tag.</h1><p>Put the full monthly picture on the table. Explore homeownership in Plainview and Lubbock, then test what makes the numbers work.</p><div class="toolbar"><a class="btn primary" href="#simulator">Build your comparison ↓</a></div></div>
+<div class="heroCard"><b>February 8, 2027</b><p>Plainview, Texas · Planning model with visible assumptions. Tax baseline: 2025. Published utilities checked September 14, 2026. Refresh rates before the symposium.</p></div>
+</div>
+</div>
+</header>
+
+<section class="section white" id="simulator"><div class="wrap">
+<div class="sectionTitle"><div class="kicker">01 / Compare the full cost</div><h2>What does home look like?</h2><p>Fixed-rate conventional loan illustration. Every borrowing input is editable; no lender offer is implied.</p></div>
+<div class="toolbar"><button class="chip" data-price="200000">$200k · Entry</button><button class="chip" data-price="300000">$300k · Midrange</button><button class="chip" data-price="400000">$400k · New-home test</button><button class="btn" id="reset">↺ Reset</button><button class="btn" onclick="print()">Print</button></div>
+<div class="controls">
+<div class="field"><label>Down payment %</label><input id="down" type="number" min="0" max="100" step="1" value="10"></div>
+<div class="field"><label>Interest rate %</label><input id="rate" type="number" min="0" max="20" step=".1" value="6.5"></div>
+<div class="field"><label>Loan term</label><select id="term"><option>30</option><option>20</option><option>15</option><option>10</option></select></div>
+<div class="field"><label>Annual PMI rate %</label><input id="pmi" type="number" min="0" max="5" step=".1" value=".5"></div>
+<div class="field"><label>Gross household income / year</label><input id="income" type="number" step="1000" value="100000"></div>
+<div class="field"><label>Full-budget target % of income</label><input id="target" type="number" min="1" max="100" step="1" value="30"></div>
+<div class="field"><label>Other monthly debt</label><input id="debt" type="number" min="0" step="50" value="500"></div>
+<div class="field"><label>General homestead scenario</label><select id="homestead"><option value="yes">Assume eligible</option><option value="no">Do not assume</option></select></div>
+</div>
+<div class="compare">
+<div class="city"><div class="cityHead"><div><div class="cityName">Plainview</div><div>Hale County · Plainview ISD</div></div><div class="code">PVW</div></div><div class="priceRow"><div class="field"><label>Home purchase price</label><input id="pPrice" type="number" value="300000" step="5000"></div><span>Assumption</span></div><div class="metricHero"><small>FULL MONTHLY HOUSING BUDGET</small><strong id="pTotal">$3,213</strong><span id="pAnnual">$38,558 annual run rate</span></div><div class="miniGrid"><div class="mini"><b id="pCash">$41,500</b><span>Remaining cash to close</span></div><div class="mini"><b id="pNeed">$128,528</b><span>Full-budget income / yr</span></div><div class="mini"><b id="pShare">38.6%</b><span>Share of gross income</span></div></div></div>
+<div class="city"><div class="cityHead"><div><div class="cityName">Lubbock</div><div>Lubbock County · Lubbock ISD</div></div><div class="code">LBK</div></div><div class="priceRow"><div class="field"><label>Home purchase price</label><input id="lPrice" type="number" value="300000" step="5000"></div><span>Assumption</span></div><div class="metricHero"><small>FULL MONTHLY HOUSING BUDGET</small><strong id="lTotal">$3,073</strong><span id="lAnnual">$36,880 annual run rate</span></div><div class="miniGrid"><div class="mini"><b id="lCash">$41,500</b><span>Remaining cash to close</span></div><div class="mini"><b id="lNeed">$122,935</b><span>Full-budget income / yr</span></div><div class="mini"><b id="lShare">36.9%</b><span>Share of gross income</span></div></div></div>
+</div>
+<div class="verdict" id="verdict">Lubbock has the lower modeled monthly budget. This is a scenario result, not a market ranking.</div>
+<h3>Where the money goes</h3>
+<table><thead><tr><th>Monthly cost</th><th>Plainview</th><th>Lubbock</th></tr></thead><tbody id="costRows"></tbody></table>
+</div></section>
+
+<section class="section cream" id="stress"><div class="wrap"><div class="sectionTitle"><div class="kicker">02 / Find the pressure points</div><h2>Give the numbers a stress test.</h2><p>See how purchase price and interest rate change the full monthly budget.</p></div>
+<div class="stressWrap"><div class="stressCard"><div class="stressGrid" id="stressGrid"></div></div><div class="gapCard"><div class="kicker">Plainview · Conversation starter</div><h3>What would close the affordability gap?</h3><div class="gapBig" id="gap">$713 / month</div><p id="gapText">Above your full-budget target.</p><hr><p><b>Interest rate +1 point:</b> <span id="plusRate"></span></p><p><b>Purchase price −10%:</b> <span id="minusPrice"></span></p><p><b>Lender-style income screen:</b> <span id="underwrite"></span></p><small>28% housing / 36% total-debt illustration. A lender must assess actual eligibility.</small></div></div>
+</div></section>
+
+<section class="section white" id="method"><div class="wrap"><div class="sectionTitle"><div class="kicker">03 / Know what is behind the numbers</div><h2>Evidence you can inspect.</h2><p>Verified in a source does not mean verified for a particular home or for 2027.</p></div>
+<div class="sourceGrid">
+<div class="source"><span class="badge">Published</span><b>Published baseline</b><p>Matches a cited historical or published source. Replace with current parcel-specific figures before an actual decision.</p></div>
+<div class="source"><span class="badge">Assumption</span><b>Scenario choices</b><p>Insurance, maintenance, electricity/gas, PMI, closing costs and any zero HOA/PID entries are planning assumptions.</p></div>
+<div class="source"><span class="badge">Needs review</span><b>Local inputs change</b><p>Lubbock school and hospital inputs require confirmation. No live quotes, address lookup or automatic rate updates are performed.</p></div>
+</div>
+<p style="margin-top:24px;color:var(--muted)">Inside-city, single-family examples in Plainview ISD and Lubbock ISD. No age, disability, veteran exemption, tax ceiling, existing-owner appraisal cap, or partial-year proration is modeled. No community-college levy is included in the baseline jurisdiction sets. Confirm all entities for the parcel. Replace allowances with a Loan Estimate, insurance quote, parcel tax information and a recent utility bill before an actual decision.</p>
+</div></section>
+
+<footer><div class="wrap">PLAINVIEW HOUSING · Better housing conversations start with clearer numbers. · February 8, 2027 symposium planning edition.</div></footer>
+<script>
+const $=id=>document.getElementById(id); const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n); const money2=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const cityBase={p:{tax:528.94,water:44.12,sewer:25,refuse:21.07,storm:0,other:0},l:{tax:341.85,water:70,sewer:35,refuse:22.19,storm:10.25,other:0}};
+function pi(price,rate,term,down){const loan=price*(1-down/100),n=term*12,r=rate/1200;if(!r)return loan/n;return loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)}
+function calc(city,price,rate=+rateEl.value){const down=+downEl.value,term=+termEl.value,pmiRate=+pmiEl.value;const principal=price*(1-down/100);const PI=pi(price,rate,term,down);const tax=cityBase[city].tax*(price/300000);const insurance=price*.012/12;const pmi=down<20?principal*(pmiRate/100)/12:0;const maintenance=price*.01/12;const c=cityBase[city];const utilities=c.water+c.sewer+c.refuse+c.storm+c.other+225;const subtotal=PI+tax+insurance+pmi;return{PI,tax,insurance,pmi,hoa:0,pid:0,subtotal,maintenance,water:c.water,sewer:c.sewer,refuse:c.refuse,storm:c.storm,other:c.other,energy:225,total:subtotal+maintenance+utilities}}
+const downEl=$('down'),rateEl=$('rate'),termEl=$('term'),pmiEl=$('pmi'),incomeEl=$('income'),targetEl=$('target'),debtEl=$('debt');
+function render(){
+ const p=calc('p',+$('pPrice').value),l=calc('l',+$('lPrice').value),inc=+incomeEl.value||1,target=(+targetEl.value||30)/100;
+ [['p',p,+$('pPrice').value],['l',l,+$('lPrice').value]].forEach(([k,x,price])=>{ $(k+'Total').textContent=money(x.total);$(k+'Annual').textContent=money(x.total*12)+' annual run rate';$(k+'Cash').textContent=money(price*(+downEl.value/100)+price*.0383333);$(k+'Need').textContent=money(x.total*12/target);$(k+'Share').textContent=(x.total*12/inc*100).toFixed(1)+'%';});
+ const d=p.total-l.total, winner=d>0?'Lubbock':'Plainview';$('verdict').textContent=winner+' has the lower modeled monthly budget. '+money(Math.abs(d)*12)+' annual difference under these inputs. This is a scenario result, not a market ranking. '+money(Math.abs(d))+' / month apart.';
+ const labels=[['Principal & interest','PI'],['Property tax','tax'],['Home insurance','insurance'],['Mortgage insurance (PMI)','pmi'],['HOA','hoa'],['PID / assessments','pid'],['Housing payment subtotal','subtotal'],['Maintenance reserve','maintenance'],['Water','water'],['Sewer','sewer'],['Refuse (with assumed tax)','refuse'],['Stormwater','storm'],['Other utility fees','other'],['Electricity + gas','energy'],['Full housing budget','total']];
+ $('costRows').innerHTML=labels.map(([lab,key])=>'<tr><td>'+lab+'</td><td>'+money2(p[key])+'</td><td>'+money2(l[key])+'</td></tr>').join('');
+ stress(p); gap(p);
+}
+function stress(current){const price=+$('pPrice').value,rate=+rateEl.value;const prices=[price*.9,price,price*1.1],rates=[Math.max(0,rate-1),rate,rate+1];let h='<div class="head">Home price ↓<br>Rate →</div>'+rates.map(r=>'<div class="head">'+r.toFixed(1)+'%</div>').join('');prices.forEach((pr,i)=>{h+='<div class="head">'+money(pr)+(i==1?'<br>Selected':'')+'</div>';rates.forEach((r,j)=>{const x=calc('p',pr,r).total;h+='<div class="'+(i==1&&j==1?'current':'')+'">'+money(x)+(i==1&&j==1?'<br><small>CURRENT</small>':'')+'</div>'})});$('stressGrid').innerHTML=h}
+function gap(p){const monthlyTarget=(+incomeEl.value||0)/12*((+targetEl.value||30)/100);const g=p.total-monthlyTarget;$('gap').textContent=money(Math.abs(g))+' / month';$('gapText').textContent=g>=0?'Above your '+targetEl.value+'% full-budget target at '+money(+incomeEl.value)+' gross household income.':'Below your selected full-budget target.';const plus=calc('p',+$('pPrice').value,+rateEl.value+1).total-p.total;const minus=calc('p',+$('pPrice').value*.9).total-p.total;$('plusRate').textContent=(plus>=0?'+':'')+money(plus)+'/mo';$('minusPrice').textContent=(minus>=0?'+':'')+money(minus)+'/mo';const housing=p.subtotal, debt=+debtEl.value||0;const req1=housing/0.28*12,req2=(housing+debt)/0.36*12;$('underwrite').textContent=money(Math.max(req1,req2))+'/yr'}
+document.querySelectorAll('input,select').forEach(x=>x.addEventListener('input',render));document.querySelectorAll('[data-price]').forEach(b=>b.addEventListener('click',()=>{$('pPrice').value=b.dataset.price;$('lPrice').value=b.dataset.price;render()}));$('reset').addEventListener('click',()=>{downEl.value=10;rateEl.value=6.5;termEl.value=30;pmiEl.value=.5;incomeEl.value=100000;targetEl.value=30;debtEl.value=500;$('pPrice').value=300000;$('lPrice').value=300000;render()});render();
+</script>
+</body></html>
