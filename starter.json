@@ -22,7 +22,7 @@
   {
     "id": "build-plainview",
     "name": "Build Plainview Housing",
-    "category": "Housing & Development",
+    "category": "Plainview Housing",
     "label": "Affordability simulator",
     "status": "Active",
     "description": "Housing affordability and full-cost comparison tool for the Build Plainview Housing & Development Symposium, including Plainview vs. Lubbock scenarios.",
@@ -32,7 +32,7 @@
   {
     "id": "housing-value",
     "name": "Plainview Housing Value & Fiscal Capacity",
-    "category": "City / Economic Development",
+    "category": "Plainview Housing",
     "label": "Tax-base simulator",
     "status": "Active",
     "description": "Interactive model showing how new housing value affects Plainview's taxable base, fiscal capacity, infrastructure burden, and constant-levy tax scenarios.",
@@ -42,7 +42,7 @@
   {
     "id": "economic-impact",
     "name": "Plainview Economic Impact Builder",
-    "category": "City / Economic Development",
+    "category": "Plainview Economic Development",
     "label": "Incentive simulator",
     "status": "Active",
     "description": "Economic-development modeling for projects, incentives, tax generation, jobs, payroll, abatements, rebates, and payback concepts.",
@@ -52,8 +52,8 @@
   {
     "id": "saturday-simulator",
     "name": "Saturday Simulator 2026",
-    "category": "Sports / Fun",
-    "label": "College football",
+    "category": "College Football",
+    "label": "College football simulator",
     "status": "Active",
     "description": "College-football project for schedules, conference and playoff scenarios, historical championship scoring, and the weighted recency model.",
     "siteUrl": "https://saturday-simulator-2026.theodore-chancellor.chatgpt.site",
@@ -62,7 +62,7 @@
   {
     "id": "toyland",
     "name": "Christmas in Toy Land — Plainview 2026",
-    "category": "City / Community",
+    "category": "Plainview Community",
     "label": "Event site",
     "status": "Active",
     "description": "Holiday event site for Plainview's Christmas Open House and Christmas in Toy Land branding.",
@@ -72,7 +72,7 @@
   {
     "id": "pvw-airport",
     "name": "PVW Airport",
-    "category": "City / Economic Development",
+    "category": "PVW",
     "label": "Airport & aviation",
     "status": "Planned",
     "description": "Reserved for a future standalone PVW site covering the terminal modernization, aviation workforce pipeline, economic development, and future air-service vision.",
@@ -82,7 +82,7 @@
   {
     "id": "sports-complex",
     "name": "Plainview Sports Complex",
-    "category": "City / Recreation",
+    "category": "Plainview Sports",
     "label": "Sports destination",
     "status": "Planned",
     "description": "Reserved for a future standalone sports complex site covering indoor courts, soccer, sports medicine, hospitality, dining, tournament weekends, and community partnerships.",
