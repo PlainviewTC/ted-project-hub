@@ -1,0 +1,92 @@
+[
+  {
+    "id": "belle-meade-community",
+    "name": "Belle Meade Community",
+    "category": "Belle Meade",
+    "label": "Master-planned community",
+    "status": "Active",
+    "description": "Subdivision showcase with neighborhoods, home designs, sports and events, Wayland game-day elements, shopping, hospitality, recreation, and the vineyard.",
+    "siteUrl": "https://belle-meade-community.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "belle-meade-vineyard",
+    "name": "Belle Meade Boutique Vineyard",
+    "category": "Belle Meade",
+    "label": "Vineyard & hospitality",
+    "status": "Active",
+    "description": "Boutique vineyard site featuring the family story, Plainview and Llano Estacado context, grapes, visitor information, hours, and hospitality.",
+    "siteUrl": "https://belle-meade-boutique-vineyard.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "build-plainview",
+    "name": "Build Plainview Housing",
+    "category": "Housing & Development",
+    "label": "Affordability simulator",
+    "status": "Active",
+    "description": "Housing affordability and full-cost comparison tool for the Build Plainview Housing & Development Symposium, including Plainview vs. Lubbock scenarios.",
+    "siteUrl": "https://build-plainview-housing.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "housing-value",
+    "name": "Plainview Housing Value & Fiscal Capacity",
+    "category": "City / Economic Development",
+    "label": "Tax-base simulator",
+    "status": "Active",
+    "description": "Interactive model showing how new housing value affects Plainview's taxable base, fiscal capacity, infrastructure burden, and constant-levy tax scenarios.",
+    "siteUrl": "https://plainview-housing-value.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "economic-impact",
+    "name": "Plainview Economic Impact Builder",
+    "category": "City / Economic Development",
+    "label": "Incentive simulator",
+    "status": "Active",
+    "description": "Economic-development modeling for projects, incentives, tax generation, jobs, payroll, abatements, rebates, and payback concepts.",
+    "siteUrl": "https://plainview-economic-impact-builder.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "saturday-simulator",
+    "name": "Saturday Simulator 2026",
+    "category": "Sports / Fun",
+    "label": "College football",
+    "status": "Active",
+    "description": "College-football project for schedules, conference and playoff scenarios, historical championship scoring, and the weighted recency model.",
+    "siteUrl": "https://saturday-simulator-2026.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "toyland",
+    "name": "Christmas in Toy Land — Plainview 2026",
+    "category": "City / Community",
+    "label": "Event site",
+    "status": "Active",
+    "description": "Holiday event site for Plainview's Christmas Open House and Christmas in Toy Land branding.",
+    "siteUrl": "https://plainview-christmas-toyland-2026.theodore-chancellor.chatgpt.site",
+    "tinyUrl": ""
+  },
+  {
+    "id": "pvw-airport",
+    "name": "PVW Airport",
+    "category": "City / Economic Development",
+    "label": "Airport & aviation",
+    "status": "Planned",
+    "description": "Reserved for a future standalone PVW site covering the terminal modernization, aviation workforce pipeline, economic development, and future air-service vision.",
+    "siteUrl": "",
+    "tinyUrl": ""
+  },
+  {
+    "id": "sports-complex",
+    "name": "Plainview Sports Complex",
+    "category": "City / Recreation",
+    "label": "Sports destination",
+    "status": "Planned",
+    "description": "Reserved for a future standalone sports complex site covering indoor courts, soccer, sports medicine, hospitality, dining, tournament weekends, and community partnerships.",
+    "siteUrl": "",
+    "tinyUrl": ""
+  }
+]
