@@ -1,6 +1,6 @@
 # Project Hub
 
-Private Next.js project directory intended for Vercel.
+Neutral, private Next.js project directory intended for Vercel.
 
 ## Architecture
 - Vercel Authentication / deployment protection handles private access.
