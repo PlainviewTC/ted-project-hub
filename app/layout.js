@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Ted's Project Hub",
+  title: "Project Hub",
   description: "Private project directory"
 };
 
